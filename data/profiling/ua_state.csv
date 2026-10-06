@@ -1,0 +1,96 @@
+state,days,sessions,txns
+not available in demo dataset,366,177760,4440
+California,366,106892,3447
+New York,366,26290,1580
+Texas,349,8734,315
+Washington,341,7613,351
+Illinois,363,7571,440
+(not set),365,6977,15
+Virginia,212,3096,73
+Massachusetts,220,2636,139
+Michigan,223,2575,207
+District of Columbia,237,2529,101
+Georgia,253,2474,104
+Pennsylvania,165,1845,54
+Oregon,97,1319,13
+Colorado,99,892,41
+Ohio,37,654,5
+North Carolina,77,616,14
+Florida,60,594,9
+New Jersey,54,561,11
+Arizona,67,544,14
+Wisconsin,23,543,1
+Nevada,38,274,5
+Minnesota,23,212,6
+Tennessee,29,209,12
+Missouri,18,129,5
+England,66,97,1
+Iowa,17,95,4
+Kentucky,10,70,
+Kansas,6,68,
+South Carolina,8,68,3
+Utah,8,62,2
+Idaho,5,62,
+Connecticut,3,61,1
+Indiana,7,55,1
+Ontario,39,49,3
+Maryland,5,45,1
+Nebraska,5,34,6
+Ile-de-France,19,27,
+County Dublin,22,26,
+Quebec,18,25,1
+Karnataka,17,25,
+New South Wales,21,23,
+Hawaii,3,21,
+Tokyo,17,20,
+Telangana,12,17,
+State of Sao Paulo,11,17,
+Taipei City,15,16,
+West Virginia,1,14,
+Seoul,11,13,
+Bangkok,7,11,
+Mexico City,9,11,
+Catalonia,5,11,1
+Victoria,7,10,
+Zulia,9,9,12
+Jakarta,7,8,
+Zurich,8,8,
+North Holland,3,7,
+Louisiana,1,7,
+State of Rio de Janeiro,5,7,1
+Vienna,4,6,1
+Oklahoma,2,6,
+Tel Aviv District,5,6,
+Istanbul,5,5,
+Maharashtra,4,5,
+British Columbia,4,5,
+Delhi,4,5,
+Dublin City,4,4,
+Haryana,3,4,
+Buenos Aires,4,4,
+Dubai,3,4,
+Stockholm County,3,4,
+Santiago Metropolitan Region,4,4,
+Montana,1,3,
+Hamburg,3,3,
+Lesser Poland Voivodeship,3,3,
+Dnipropetrovsk Oblast,2,3,
+Community of Madrid,2,3,
+Bavaria,3,3,
+Masovian Voivodeship,3,3,
+Prague,2,2,
+Bogota,2,2,
+New Taipei City,2,2,
+Antioquia,1,2,
+Zhejiang,2,2,
+State of Minas Gerais,1,2,
+Queensland,2,2,
+Lombardy,1,1,
+Tamil Nadu,1,1,
+Kanagawa Prefecture,1,1,
+Osaka Prefecture,1,1,
+Kyiv city,1,1,
+Abu Dhabi,1,1,
+Ho Chi Minh City,1,1,
+Brussels,1,1,
+Lazio,1,1,

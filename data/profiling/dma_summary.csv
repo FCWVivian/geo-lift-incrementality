@@ -1,0 +1,85 @@
+Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (0s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (1s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (2s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (3s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (4s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (5s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (7s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (8s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (9s) Current status: RUNNING                                                                                      Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (10s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (11s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (12s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (13s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (14s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (15s) Current status: RUNNING                                                                                       Waiting on bqjob_r20a332052db7fde2_000001a0fb38d9a3_1 ... (15s) Current status: DONE   
+dma,days,sessions,txns,revenue
+not available in demo dataset,366,177760,4440,731163.0
+San Francisco-Oakland-San Jose CA,366,95347,3054,356020.0
+New York NY,366,26772,1590,237949.0
+Los Angeles CA,364,9962,349,55537.0
+(not set),365,7648,38,4026.0
+Seattle-Tacoma WA,341,7613,351,38977.0
+Chicago IL,363,7571,440,77554.0
+Austin TX,300,3782,220,23700.0
+Washington DC (Hagerstown MD),260,3375,101,11668.0
+Boston MA-Manchester NH,219,2624,138,23424.0
+Houston TX,247,2471,56,5742.0
+Atlanta GA,251,2461,104,18124.0
+Detroit MI,216,2400,207,32719.0
+Roanoke-Lynchburg VA,186,2224,73,22557.0
+Dallas-Ft. Worth TX,206,2009,27,2213.0
+San Diego CA,165,1360,39,3896.0
+Portland OR,97,1319,13,1230.0
+Pittsburgh PA,118,1075,40,2305.0
+Denver CO,97,876,41,3773.0
+Philadelphia PA,80,800,14,1397.0
+Phoenix AZ,67,537,14,2300.0
+Charlotte NC,69,525,13,1560.0
+Columbus OH,30,517,4,156.0
+La Crosse-Eau Claire WI,19,396,,
+San Antonio TX,52,393,11,374.0
+Orlando-Daytona Beach-Melbourne FL,30,360,4,187.0
+Minneapolis-St. Paul MN,21,197,6,322.0
+Nashville TN,27,191,12,2444.0
+Miami-Ft. Lauderdale FL,21,159,4,246.0
+Omaha NE,21,129,10,488.0
+Grand Rapids-Kalamazoo-Battle Creek MI,8,128,,
+Kansas City MO,16,117,5,280.0
+London,66,97,1,119.0
+Chico-Redding CA,10,94,,
+Green Bay-Appleton WI,10,91,,
+Las Vegas NV,8,76,1,76.0
+Cincinnati OH,6,71,1,94.0
+Fresno-Visalia CA,8,67,4,363.0
+Cleveland-Akron (Canton) OH,5,66,,
+Salt Lake City UT,8,62,2,64.0
+Louisville KY,9,62,,
+Sacramento-Stockton-Modesto CA,10,62,1,184.0
+Hartford & New Haven CT,3,61,1,18.0
+Idaho Falls-Pocatello ID,4,59,,
+Raleigh-Durham (Fayetteville) NC,7,55,1,20.0
+Indianapolis IN,7,55,1,8.0
+Charleston SC,6,52,3,274.0
+Tulsa OK,5,51,,
+Lansing MI,6,47,,
+Milwaukee WI,3,39,1,401.0
+Harlingen-Weslaco-Brownsville-McAllen TX,4,36,,
+Tampa-St. Petersburg (Sarasota) FL,4,34,,
+El Paso TX,5,33,1,34.0
+Baltimore MD,4,32,1,33.0
+Jacksonville FL,4,27,1,32.0
+St. Louis MO,3,27,,
+Norfolk-Portsmouth-Newport News VA,3,26,,
+Utica NY,2,23,,
+Honolulu HI,3,21,,
+Albany-Schenectady-Troy NY,1,19,,
+Madison WI,2,17,,
+Greenville-Spartanburg-Asheville-Anderson,2,16,,
+Colorado Springs-Pueblo CO,2,16,,
+Wheeling WV-Steubenville OH,1,14,,
+Charlottesville VA,1,13,,
+Abilene-Sweetwater TX,1,10,,
+Memphis TN,1,10,,
+Mankato MN,1,9,,
+Springfield MO,1,8,,
+Tri-Cities TN-VA,1,8,,
+Panama City FL,1,8,,
+Lexington KY,1,8,,
+Augusta GA,1,7,,
+Tucson (Sierra Vista) AZ,1,7,,
+New Orleans LA,1,7,,
+Syracuse NY,1,7,1,23.0
+"Rochester-Mason City-Austin,IA",1,6,,
+Chattanooga TN,1,6,,
+"Providence-New Bedford,MA",1,6,1,184.0
+Springfield-Holyoke MA,1,6,,
+Tallahassee FL-Thomasville GA,1,6,,
+Butte-Bozeman MT,1,3,,
+Boise ID,1,3,,

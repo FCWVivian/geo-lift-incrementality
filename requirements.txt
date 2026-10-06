@@ -1,0 +1,7 @@
+# Python 3.11 — lessons 1–7 (Lesson 8 runs in Google Colab with an R runtime)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+matplotlib>=3.7
+jupyter
+nbformat>=5.9

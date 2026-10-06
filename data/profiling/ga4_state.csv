@@ -1,0 +1,53 @@
+state,days,sessions,purchases
+California,92,33286,527
+Texas,92,11728,230
+New York,92,10884,154
+Virginia,92,10431,166
+Florida,92,7351,128
+Massachusetts,92,6218,96
+Illinois,92,6058,101
+Pennsylvania,92,4877,82
+New Jersey,92,4731,61
+Washington,92,4678,86
+Georgia,92,4344,50
+North Carolina,92,3938,66
+Ohio,92,3887,45
+Michigan,92,3846,56
+Colorado,92,2671,40
+Maryland,92,2335,32
+Tennessee,92,2315,39
+Arizona,92,2207,50
+Wisconsin,92,2106,25
+Missouri,92,2105,23
+(not set),92,2103,26
+Indiana,92,2052,27
+Oregon,92,1772,42
+Minnesota,92,1758,20
+Connecticut,92,1486,30
+Utah,92,1470,30
+Alabama,92,1468,19
+South Carolina,92,1467,14
+Kansas,92,1204,21
+Kentucky,92,1160,15
+Iowa,92,1131,14
+Louisiana,92,1087,13
+Oklahoma,92,1058,13
+Nevada,92,1006,15
+Nebraska,92,937,23
+Arkansas,92,745,11
+Mississippi,91,744,15
+Idaho,91,543,9
+District of Columbia,91,541,9
+Maine,91,522,13
+New Mexico,92,502,12
+West Virginia,91,471,4
+New Hampshire,91,470,10
+Hawaii,88,425,3
+Rhode Island,88,384,3
+Delaware,87,353,1
+Montana,87,302,5
+South Dakota,83,233,1
+North Dakota,78,226,3
+Vermont,79,220,0
+Wyoming,77,184,2
+Alaska,72,135,1

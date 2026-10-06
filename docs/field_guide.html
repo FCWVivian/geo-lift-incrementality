@@ -1,0 +1,513 @@
+<title>Geo Lift Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: a field-guide page — stage rail on the left, decision nodes flowing down; glossary below with search */
+:root {
+  --paper: #f2f5f3;
+  --surface: #ffffff;
+  --ink: #15201e;
+  --muted: #586864;
+  --line: #c7d2ce;
+  --teal: #0e6a60;
+  --teal-soft: #dcece8;
+  --ochre: #a85d17;
+  --ochre-soft: #f6e8d8;
+  --good: #2c7a4b;
+  --good-soft: #def0e4;
+  --warn: #9a6a0c;
+  --warn-soft: #f7ecd2;
+  --bad: #ad3b28;
+  --bad-soft: #f8e1dc;
+  --display: "Bricolage Grotesque", "IBM Plex Sans", "Noto Sans TC", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Noto Sans TC", system-ui, -apple-system, "PingFang TC", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1615; --surface: #15201e; --ink: #e2ebe8; --muted: #92a49f; --line: #2b3a37;
+    --teal: #55b7a9; --teal-soft: #173430; --ochre: #e0a35e; --ochre-soft: #3a2a17;
+    --good: #6cc38c; --good-soft: #17301f; --warn: #e2b75c; --warn-soft: #352a12;
+    --bad: #ec806b; --bad-soft: #3a1d17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1615; --surface: #15201e; --ink: #e2ebe8; --muted: #92a49f; --line: #2b3a37;
+  --teal: #55b7a9; --teal-soft: #173430; --ochre: #e0a35e; --ochre-soft: #3a2a17;
+  --good: #6cc38c; --good-soft: #17301f; --warn: #e2b75c; --warn-soft: #352a12;
+  --bad: #ec806b; --bad-soft: #3a1d17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 15px; line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 32px 64px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; }
+h3 { font-size: 19px; font-weight: 600; }
+p { margin: 0; }
+code, .mono { font-family: var(--mono); font-size: 0.88em; }
+a { color: var(--teal); }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* Header */
+header { display: grid; gap: 14px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+.lede { max-width: 66ch; color: var(--muted); font-size: 16px; }
+nav.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.jump a {
+  font-size: 13px; text-decoration: none; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+}
+nav.jump a:hover { border-color: var(--teal); color: var(--teal); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* Stages */
+section.block { padding-top: 44px; display: grid; gap: 22px; }
+.stage {
+  display: grid; grid-template-columns: 150px 1fr; gap: 24px;
+  padding-block: 26px; border-bottom: 1px dashed var(--line);
+}
+.stage:last-of-type { border-bottom: none; }
+.stage-label { display: grid; align-content: start; gap: 4px; }
+.stage-label .when { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ochre); }
+.stage-label .name { font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.1; }
+.stage-label .zh { font-size: 13px; color: var(--muted); }
+.stage-body { display: grid; gap: 22px; min-width: 0; }
+
+/* Decision node */
+.node { display: grid; gap: 12px; min-width: 0; }
+.q {
+  display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start;
+  background: var(--surface); border: 1.5px solid var(--teal); border-radius: 10px; padding: 14px 16px;
+}
+.q .tag {
+  font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--surface); background: var(--teal);
+  border-radius: 6px; padding: 2px 8px; margin-top: 3px; white-space: nowrap;
+}
+.q h3 { font-size: 18px; }
+.q .zh { font-size: 13px; color: var(--muted); }
+.q .how { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+.branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; position: relative; padding-left: 18px; }
+.branches::before { content: ""; position: absolute; left: 6px; top: -12px; bottom: 14px; border-left: 2px solid var(--line); }
+.br {
+  position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0;
+}
+.br::before { content: ""; position: absolute; left: -13px; top: 20px; width: 12px; border-top: 2px solid var(--line); }
+.br .if { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.br .then { font-weight: 600; font-size: 15px; }
+.br p { font-size: 13.5px; }
+.br.good { background: var(--good-soft); border-color: transparent; }
+.br.good .then { color: var(--good); }
+.br.warn { background: var(--warn-soft); border-color: transparent; }
+.br.warn .then { color: var(--warn); }
+.br.bad { background: var(--bad-soft); border-color: transparent; }
+.br.bad .then { color: var(--bad); }
+.br.go { border-color: var(--teal); }
+.br.go .then { color: var(--teal); }
+
+.look {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px;
+}
+.panel { border-radius: 8px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.panel .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.panel.watch { background: var(--teal-soft); }
+.panel.watch .lbl { color: var(--teal); }
+.panel.mine { background: var(--ochre-soft); }
+.panel.mine .lbl { color: var(--ochre); }
+.panel ul { margin: 0; padding-left: 18px; font-size: 13.5px; display: grid; gap: 3px; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 500; }
+
+.rule {
+  border-left: 3px solid var(--ochre); padding: 8px 14px; background: var(--surface); border-radius: 0 8px 8px 0;
+  font-size: 14px;
+}
+.rule b { color: var(--ochre); }
+.checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.checklist div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-size: 13.5px; }
+.checklist b { display: block; font-size: 14.5px; margin-bottom: 2px; }
+
+/* Formula sheet */
+.sheet-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+tr:last-child td { border-bottom: none; }
+td.f { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; }
+
+/* Glossary */
+.gloss-tools { display: grid; gap: 12px; }
+.search { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.search input {
+  flex: 1 1 260px; min-width: 0; font: inherit; padding: 10px 14px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button {
+  font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.chips button[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--surface); }
+.gloss { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.term {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
+  display: grid; gap: 4px; align-content: start; min-width: 0;
+}
+.term .top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.term .en { font-weight: 600; font-size: 15px; }
+.term .zhn { font-size: 13px; color: var(--teal); font-weight: 500; }
+.term .les { font-family: var(--mono); font-size: 11px; color: var(--ochre); white-space: nowrap; }
+.term p { font-size: 13.5px; color: var(--ink); }
+.term .ex { font-size: 12.5px; color: var(--muted); }
+.empty { color: var(--muted); font-size: 14px; }
+
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .stage { grid-template-columns: 1fr; gap: 14px; }
+  .stage-label { grid-template-columns: auto auto 1fr; align-items: baseline; gap: 10px; }
+  .branches { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  nav.jump a, .chips button { transition: border-color .15s, color .15s, background .15s; }
+}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Incrementality · geo experiments · 8 case studies</span>
+  <h1>Geo Lift Field Guide</h1>
+  <p class="lede">Follow the tree from top to bottom: each question tells you which method to use, which number to look at, and what threshold decides the next step. Orange panels show results from the case studies on the GA4 Google Merchandise Store public sample.</p>
+  <nav class="jump" aria-label="Sections">
+    <a href="#tree">Decision tree</a>
+    <a href="#sheet">Formula sheet</a>
+    <a href="#glossary">Glossary</a>
+  </nav>
+  <div class="legend" aria-label="Legend">
+    <span><i class="sw" style="background:var(--teal)"></i>Question to answer</span>
+    <span><i class="sw" style="background:var(--good-soft);border:1px solid var(--good)"></i>Go / OK</span>
+    <span><i class="sw" style="background:var(--warn-soft);border:1px solid var(--warn)"></i>Borderline</span>
+    <span><i class="sw" style="background:var(--bad-soft);border:1px solid var(--bad)"></i>Stop / wrong</span>
+    <span><i class="sw" style="background:var(--teal-soft)"></i>What to look at</span>
+    <span><i class="sw" style="background:var(--ochre-soft)"></i>Case study results</span>
+  </div>
+</header>
+
+<section class="block" id="tree" aria-labelledby="tree-h">
+  <h2 id="tree-h">Decision tree</h2>
+
+  <!-- Stage 0 -->
+  <div class="stage">
+    <div class="stage-label"><span class="when">Start</span><span class="name">Pick the test type</span></div>
+    <div class="stage-body">
+      <div class="node">
+        <div class="q"><span class="tag">Q0</span><div><h3>Can you randomize individual users?</h3></div></div>
+        <div class="branches">
+          <div class="br"><span class="if">YES · cookies, logins, platform lift tools</span><span class="then">User-level A/B or conversion lift</span><p>Outside this guide.</p></div>
+          <div class="br go"><span class="if">NO · TV / CTV, OOH, offline stores, privacy limits</span><span class="then">Geo experiment → continue</span><p>Treat whole regions (states, DMAs, cities) and compare against untreated regions.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 1 -->
+  <div class="stage">
+    <div class="stage-label"><span class="when">Before launch</span><span class="name">Design</span></div>
+    <div class="stage-body">
+
+      <div class="node">
+        <div class="q"><span class="tag">Q1</span><div><h3>Do you have enough comparable history?</h3></div></div>
+        <div class="branches">
+          <div class="br good"><span class="if">pre-period ≥ 4 × test length, same season</span><span class="then">Continue to Q2</span></div>
+          <div class="br bad"><span class="if">short history, or windows cross a holiday transition</span><span class="then">Fix the window first</span><p>Get more history, move the test out of Q4, or keep before/after windows comparable. Rankings and MDE from short holiday data don't generalize.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>Days of history vs test length</li><li>National change between before/after windows</li><li>GeoLift warning “Small pre-treatment period”</li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · cases 05, 08</span><ul><li><span class="num">64</span> days vs <span class="num">112</span> recommended</li><li>32-day test MDE <span class="num">8%</span>, worse than 28-day <span class="num">6%</span> (crossed early-Nov lull)</li></ul></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="q"><span class="tag">Q2</span><div><h3>Which geos get the treatment?</h3><p class="how">Work through the three steps in order.</p></div></div>
+        <div class="branches">
+          <div class="br"><span class="if">Step 1 · exclusion rules</span><span class="then">Drop tiny geos; keep giant geos as control only</span><p>Median &lt; 10 / day → too noisy. Share &gt; 15% → too expensive, weakens the control, no counterfactual.</p></div>
+          <div class="br go"><span class="if">Step 2 · default</span><span class="then">Stratified randomization</span><p>Sort by size, split into strata, pick one geo per stratum. Same noise as random, predictable budget.</p></div>
+          <div class="br warn"><span class="if">Step 3 · optional</span><span class="then">Search for the “best” set</span><p>Only with long, representative history, and always check the ranking on a held-out period.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>Budget share (p10–p90 across draws)</li><li>Backtest RMSE (history)</li><li>Correlation of backtest vs held-out error: ≈ 0 means don't trust the ranking</li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · cases 06, 08</span><ul><li>Dropped <span class="num">17</span> tiny states; California (<span class="num">21%</span>) control only</li><li>Budget share stratified <span class="num">12–16%</span> vs random <span class="num">8–19%</span></li><li>Top-10 searched sets 4× better in history, correlation with January <span class="num">−0.01</span></li><li>GeoLift #1 MDE <span class="num">2.5%</span>, but #2–#5 worse than random in January</li></ul></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="q"><span class="tag">Q3</span><div><h3>Can this design detect the effect you expect?</h3><p class="how">Simulate fake tests on history: inject a known lift into random geos, re-estimate hundreds of times, count how often it clears the noise line.</p></div></div>
+        <div class="branches">
+          <div class="br good"><span class="if">expected effect &gt; MDE</span><span class="then">Launch</span></div>
+          <div class="br warn"><span class="if">expected effect ≈ MDE</span><span class="then">Borderline (~80% chance)</span><p>Add a safety margin before committing budget.</p></div>
+          <div class="br bad"><span class="if">expected effect &lt; MDE</span><span class="then">Redesign or don't run</span><p>Raise spend intensity, add geos (helps ~1/√n, diminishing), use a more stable KPI, avoid Q4. An underpowered test wastes budget and gets misread as “ads don't work”.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>Power curve; <b>MDE</b> = smallest lift with power ≥ <span class="num">80%</span></li><li>α = <span class="num">0.05</span></li><li>Sanity: power at 0% ≈ <span class="num">5%</span></li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · case 05</span><ul><li>6 states × 28 days: MDE <span class="num">6%</span></li><li>3 / 6 / 10 / 15 states: MDE <span class="num">8 / 6 / ≈4.5 / 4%</span></li><li>Expected 2%: power <span class="num">0.14</span>; even 17 states only <span class="num">0.42</span> → don't run</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 2 -->
+  <div class="stage">
+    <div class="stage-label"><span class="when">During</span><span class="name">Run</span></div>
+    <div class="stage-body">
+      <div class="checklist">
+        <div><b>Keep controls clean</b>No ads leaking into control geos (spillover) and no other campaigns hitting only one side.</div>
+        <div><b>Log spend</b>Spend per geo per day. You need it for iROAS.</div>
+        <div><b>Stick to the plan</b>Same geos, same dates, same KPI as designed. Changing them mid-test breaks the power analysis.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 3 -->
+  <div class="stage">
+    <div class="stage-label"><span class="when">After</span><span class="name">Measure</span></div>
+    <div class="stage-body">
+
+      <div class="node">
+        <div class="q"><span class="tag">Q4</span><div><h3>Which estimator builds the counterfactual?</h3></div></div>
+        <div class="branches">
+          <div class="br bad"><span class="if">before vs after, treated geo only</span><span class="then">Naive lift: never use alone</span><p>Credits seasonality to the ads.</p></div>
+          <div class="br good"><span class="if">pre-trends roughly parallel</span><span class="then">DiD</span><p>Simple, explainable. Treated change ÷ control change − 1.</p></div>
+          <div class="br go"><span class="if">treated unit unlike any simple control</span><span class="then">Synthetic control</span><p>Weighted mix of donors (w ≥ 0, Σw = 1) fit on the pre-period.</p></div>
+          <div class="br go"><span class="if">treated unit outside the donor range</span><span class="then">Augmented SCM (GeoLift, ridge)</span><p>Allows negative weights to extrapolate. Check for one dominant donor.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>Indexed pre-period plot / correlation (parallel?)</li><li>Pre-period MAE or scaled L2 imbalance (fit)</li><li>Weights: sparse? negative? one donor dominating?</li><li><b>Placebo error across all units</b>, the deciding number</li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · cases 01, 03, 08</span><ul><li>Naive Texas <span class="num">−3.4%</span> with true effect 0</li><li>DiD Texas <span class="num">−0.7%</span>; typical single state <span class="num">5.1%</span>; 6 pooled <span class="num">1.8%</span></li><li>SCM fit MAE <span class="num">0.067</span>, placebo <span class="num">3.3%</span> vs DiD <span class="num">2.9%</span> (17 of 34)</li><li>GeoLift <span class="num">7.4%</span> vs DiD <span class="num">6.9%</span> (truth 8%); placebo weight California <span class="num">1.08</span></li></ul></div>
+        </div>
+        <p class="rule"><b>Rule:</b> choose the method by placebo error, not by pre-period fit or by how sophisticated it is. Better fit is training error; placebo error is test error.</p>
+      </div>
+
+      <div class="node">
+        <div class="q"><span class="tag">Q5</span><div><h3>Is the lift real or noise?</h3><p class="how">Placebo test: draw fake treated groups from control geos only, on data with no effect, ~1,000 times.</p></div></div>
+        <div class="branches">
+          <div class="br good"><span class="if">p &lt; 0.05 and CI excludes 0</span><span class="then">Real effect</span><p>Report the estimate <i>with</i> its CI.</p></div>
+          <div class="br warn"><span class="if">p ≈ 0.05, or CI barely touches 0</span><span class="then">Borderline</span><p>Report the range; don't lean on the word “significant”.</p></div>
+          <div class="br bad"><span class="if">p ≥ 0.05</span><span class="then">Can't tell from noise</span><p>Means “underpowered”, not “no effect”. Go back to Q3.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>p-value = share of |placebo| ≥ |estimate| (two-sided)</li><li>95% CI = estimate − 97.5th / 2.5th percentile of placebos</li><li>With B placebos, report p &lt; 1/B, never p = 0</li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · cases 04, 08</span><ul><li>True 8%: estimate <span class="num">6.9%</span>, p &lt; <span class="num">0.001</span>, CI <span class="num">[2.8%, 10.5%]</span></li><li>True 2%: p <span class="num">0.76</span> (real effect missed)</li><li>True 5%: p <span class="num">0.04</span> but CI <span class="num">[−0.1%, 7.6%]</span></li><li>GeoLift placebo: <span class="num">+4.5%</span>, p <span class="num">0.61</span></li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 4 -->
+  <div class="stage">
+    <div class="stage-label"><span class="when">Decide</span><span class="name">Money</span></div>
+    <div class="stage-body">
+      <div class="node">
+        <div class="q"><span class="tag">Q6</span><div><h3>Was it worth the money?</h3><p class="how">Lift → incremental sessions → incremental revenue (× CVR × AOV) → iROAS. Compare the iROAS CI with the profit break-even, 1 ÷ margin.</p></div></div>
+        <div class="branches">
+          <div class="br good"><span class="if">whole iROAS CI above 1 / margin</span><span class="then">Scale</span></div>
+          <div class="br warn"><span class="if">CI straddles 1 / margin</span><span class="then">Hold and re-test</span><p>Try a lower spend level; returns usually diminish with spend.</p></div>
+          <div class="br bad"><span class="if">whole CI below 1 / margin</span><span class="then">Cut or reduce</span><p>The ads work but lose money at this spend.</p></div>
+        </div>
+        <div class="look">
+          <div class="panel watch"><span class="lbl">Look at</span><ul><li>iROAS and its range (from the lift CI)</li><li>Profit = incremental revenue × margin − spend</li><li>Platform ROAS vs iROAS → incrementality factor → calibrate platform numbers and MMM</li></ul></div>
+          <div class="panel mine"><span class="lbl">Results · case 07</span><ul><li>Incremental sessions <span class="num">716</span>, revenue ≈ <span class="num">$1,066</span>, spend <span class="num">$800</span></li><li>iROAS <span class="num">1.33</span> (<span class="num">0.57–1.97</span>) &lt; break-even <span class="num">2.0</span> → loses money in every case</li><li>Platform ROAS <span class="num">3.5</span> → only <span class="num">38%</span> incremental</li></ul></div>
+        </div>
+        <p class="rule"><b>Rule:</b> “the ads work” and “the ads are worth it” are different questions. Answer both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Formula sheet</h2>
+  <div class="sheet-wrap">
+    <table>
+      <thead><tr><th>Quantity</th><th>Formula</th><th>Code</th><th>Case</th></tr></thead>
+      <tbody>
+        <tr><td>Naive lift</td><td>after ÷ before − 1</td><td class="f">after / before - 1</td><td>01</td></tr>
+        <tr><td>DiD lift</td><td>(T<sub>after</sub> ÷ T<sub>before</sub>) ÷ (C<sub>after</sub> ÷ C<sub>before</sub>) − 1</td><td class="f">(Ta/Tb)/(Ca/Cb) - 1</td><td>02</td></tr>
+        <tr><td>SCM weights</td><td>min mean (X·w − y)² over pre-period, w ≥ 0, Σw = 1</td><td class="f">minimize(..., method="SLSQP")</td><td>03</td></tr>
+        <tr><td>SCM lift</td><td>actual<sub>after</sub> ÷ synthetic<sub>after</sub> − 1</td><td class="f">actual / synthetic - 1</td><td>03</td></tr>
+        <tr><td>p-value (two-sided)</td><td>share of |placebo| ≥ |estimate|</td><td class="f">np.mean(np.abs(pl) &gt;= abs(est))</td><td>04</td></tr>
+        <tr><td>95% CI</td><td>[est − q<sub>0.975</sub>, est − q<sub>0.025</sub>] of placebos</td><td class="f">est - np.quantile(pl, .975)</td><td>04</td></tr>
+        <tr><td>Power</td><td>share of simulated estimates beyond the 95th pct of |null|</td><td class="f">np.mean(abs(est) &gt; crit)</td><td>05</td></tr>
+        <tr><td>MDE scaling</td><td>MDE<sub>n</sub> ≈ MDE<sub>n₀</sub> × √(n₀ ÷ n)</td><td class="f">6% * sqrt(6/n)</td><td>05</td></tr>
+        <tr><td>Textbook MDE</td><td>≈ 2.8 × σ of the noise</td><td class="f">2.8 * sigma</td><td>05</td></tr>
+        <tr><td>Backtest RMSE</td><td>√ mean of zero-lift errors over historical windows</td><td class="f">np.sqrt(np.mean(err**2))</td><td>06</td></tr>
+        <tr><td>Incremental KPI</td><td>actual − actual ÷ (1 + lift)</td><td class="f">actual - actual/(1+lift)</td><td>07</td></tr>
+        <tr><td>Incremental revenue</td><td>incremental sessions × CVR × AOV</td><td class="f">inc * cvr * aov</td><td>07</td></tr>
+        <tr><td>iROAS</td><td>incremental revenue ÷ ad spend</td><td class="f">inc_rev / SPEND</td><td>07</td></tr>
+        <tr><td>Profit break-even iROAS</td><td>1 ÷ gross margin</td><td class="f">1 / MARGIN</td><td>07</td></tr>
+        <tr><td>Incrementality factor</td><td>iROAS ÷ platform ROAS</td><td class="f">iroas / platform_roas</td><td>07</td></tr>
+        <tr><td>Lift from GeoLift CI (sessions)</td><td>incremental ÷ (actual − incremental)</td><td class="f">inc / (actual - inc)</td><td>08</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="glossary" aria-labelledby="gloss-h">
+  <h2 id="gloss-h">Glossary</h2>
+  <div class="gloss-tools">
+    <div class="search">
+      <label for="q" class="count" style="flex-basis:100%">Search terms</label>
+      <input id="q" type="search" placeholder="e.g. power, placebo, iROAS" autocomplete="off">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+  </div>
+  <div class="gloss" id="gloss"></div>
+  <p class="empty" id="empty" hidden>No terms match. Try a shorter word.</p>
+</section>
+
+<footer>Companion to <a href="https://github.com/FCWVivian/geo-lift-incrementality">geo-lift-incrementality</a>: eight case studies on the GA4 Google Merchandise Store public sample (Nov 2020 – Jan 2021, 34 US states). Lifts are injected (semi-synthetic), so the true effect is known in every example.</footer>
+</div>
+
+<script>
+const T = [
+ // [category, term, explanation, case, result]
+ ["Core ideas","Incrementality","Outcome with ads minus outcome without ads: only the part the ads actually caused.","01",""],
+ ["Core ideas","Counterfactual","What would have happened in the same place and time without the ads. Never observed; always estimated.","01",""],
+ ["Core ideas","Treatment group","Geos that receive the campaign.","01",""],
+ ["Core ideas","Control group","Geos that don't receive the campaign; used to estimate the counterfactual.","02",""],
+ ["Core ideas","Geo experiment","Randomizing regions (states, DMAs, cities) instead of people, when user-level randomization isn't possible (TV, OOH, offline stores, privacy limits).","01",""],
+ ["Core ideas","Lift","Percent increase in the KPI relative to the counterfactual.","01",""],
+ ["Core ideas","Naive lift","Before vs after for the treated geo only: after ÷ before − 1. Credits seasonality to the ads.","01","Texas −3.4% with true effect 0"],
+ ["Core ideas","Confounder","Anything that changes between the before and after windows that isn't the ad: seasonality, holidays, news, other campaigns.","01",""],
+ ["Core ideas","Seasonality","Recurring calendar patterns, e.g. Black Friday, the December peak, the January lull.","01",""],
+ ["Core ideas","Pre-period / post-period","Before launch (used to fit or as a baseline) / during the test (used to measure the effect).","02",""],
+ ["Core ideas","KPI","The outcome being measured, e.g. sessions, orders, revenue.","01",""],
+ ["Core ideas","Semi-synthetic test","Real data with a known lift injected, so a method's accuracy can be checked against the truth.","01",""],
+ ["Core ideas","Spillover","Treatment leaking into control geos (e.g. national media), which biases the lift toward zero.","06",""],
+ ["Core ideas","Go-dark test","A geo test that turns ads off in some regions instead of adding spend; cheaper to run.","—",""],
+
+ ["Methods","Difference-in-differences (DiD)","Treated change ÷ control change − 1. Uses the control group to remove shared trends.","02","Texas −0.7%; 10% injected → 9.2%"],
+ ["Methods","Parallel trends","DiD's key assumption: without treatment, treated and control geos would move in the same direction by the same amount.","02","Daily correlation ≈ 0.92"],
+ ["Methods","Indexing","Dividing each geo by its own pre-period mean so geos of different sizes share one scale (1.0 = normal).","03",""],
+ ["Methods","Synthetic control (SCM)","A weighted mix of control geos fit to match the treated geo before launch; the frozen weights give the counterfactual.","03","Texas pre-period MAE 0.067"],
+ ["Methods","Donor pool","The control geos SCM may combine.","03",""],
+ ["Methods","Weights","Each donor's share of the synthetic unit. Plain SCM: ≥ 0, sum to 1, usually sparse.","03","California weight 0 for Texas"],
+ ["Methods","Augmented SCM (ASCM)","Synthetic control plus an outcome model that corrects SCM's remaining bias. Used by GeoLift.","08","GeoLift estimate 7.4%"],
+ ["Methods","Ridge regression","Regression with an L2 penalty that shrinks coefficients to limit overfitting.","08",""],
+ ["Methods","Negative weights / extrapolation","Ridge ASCM allows negative donor weights, so the synthetic unit can go beyond the donors' range. Better fit, harder to interpret.","08","+1.98 / −0.98"],
+ ["Methods","Fixed effects","Removing each geo's own average level before modeling, so size differences don't drive the fit.","08",""],
+ ["Methods","Generalized SCM (GSYN)","A factor-model variant of synthetic control; one of GeoLift's model = \"best\" candidates.","08",""],
+
+ ["Fit & error","MAE","Mean absolute error; average size of the gap between two series.","03",""],
+ ["Fit & error","MSE","Mean squared error; used as the SCM loss because it is smooth and easy to optimize.","03",""],
+ ["Fit & error","RMSE","Square root of MSE; the typical size of an error.","06",""],
+ ["Fit & error","Correlation","From −1 to +1: whether two series move together. High correlation doesn't mean the series are close.","03",""],
+ ["Fit & error","Overfitting","Fitting noise as well as signal: great historical fit, poor future accuracy.","03","33 SCM weights on 64 days"],
+ ["Fit & error","Training vs test error","Pre-period fit is training error; placebo error is test error. Judge methods by the second.","03",""],
+ ["Fit & error","Scaled L2 imbalance","GeoLift's pre-period mismatch between treated and synthetic; lower is better.","08","0.28"],
+ ["Fit & error","Cherry-picking","Judging a method on hand-picked examples instead of the full set of units.","03",""],
+ ["Fit & error","Data leakage","Using information that wouldn't be available at decision time, e.g. choosing controls with test-period data.","03",""],
+
+ ["Inference","Placebo test","Running the same analysis where the true effect is known to be zero, to see how large an effect the method \"finds\" by chance. Also: permutation or falsification test.","04",""],
+ ["Inference","Null distribution","The distribution of estimates when there is no effect, built from placebos: the yardstick for noise.","04","std 2.1%"],
+ ["Inference","p-value","If the ads had no effect, the probability of a result at least this extreme. Not the probability that the ads didn't work.","04","p < 0.001"],
+ ["Inference","Two-sided test","Counts extreme results in both directions, so absolute values are compared.","04",""],
+ ["Inference","α (significance level)","The significance threshold, usually 0.05; also the false-positive rate.","04",""],
+ ["Inference","Statistically significant","p < α: the result is unlikely to be noise. Says nothing about the effect being large.","04",""],
+ ["Inference","Confidence interval (CI)","The range of true effects consistent with the data. A 95% CI uses the middle 95% of the noise.","04","[2.8%, 10.5%]"],
+ ["Inference","Percentile / quantile","A position in sorted data: p10 has 10% of values below it; q0.975 is the 97.5th percentile.","04",""],
+ ["Inference","Conformal inference","GeoLift's method for p-values and CIs; similar in spirit to placebos and more conservative on short data.","08","p = 0.03"],
+ ["Inference","False positive","Declaring an effect when there is none; happens about α of the time.","05",""],
+ ["Inference","False negative","Missing a real effect.","05","True 2% → p = 0.76"],
+ ["Inference","Point estimate","A single estimated number (e.g. 6.9%). Always report it with an interval or p-value.","04","Placebo also showed +4.5%"],
+
+ ["Design","Power","If the effect is real, the probability the test detects it (p < α). Target ≥ 80%.","05","0.14 for a 2% lift"],
+ ["Design","MDE (minimum detectable effect)","The smallest effect detected with ≥ 80% power: the smallest reading on the scale.","05","6% for 6 states × 28 days"],
+ ["Design","Power analysis","Simulating tests on historical data before launch to estimate power and MDE, and to choose geos, duration, and spend.","05",""],
+ ["Design","Underpowered","A test with low power; likely \"not significant\" even if the ads work.","05",""],
+ ["Design","Critical value","The noise threshold (95th percentile of |null|) an estimate must exceed to be significant.","05","≈ 3.6–3.8%"],
+ ["Design","1/√n rule","Pooling n geos shrinks noise roughly by 1/√n, with diminishing returns.","02","1 → 6 → 10 states: 4.4 → 1.8 → 1.6%"],
+ ["Design","Pooling","Summing several geos so their noise partly cancels.","02",""],
+ ["Design","Market selection","Choosing which geos are treated, before launch.","06",""],
+ ["Design","Exclusion rules","Too small (noisy) → drop; too large (expensive, weakens the control) → control only.","06","17 small states + California"],
+ ["Design","Stratified randomization","Sort geos by size, split into strata, pick one per stratum: balanced groups and a predictable budget.","06","Budget share 12–16%"],
+ ["Design","Strata","Groups of similar-size geos.","06",""],
+ ["Design","Budget share","Treated geos' share of national KPI ≈ share of spend needed.","06",""],
+ ["Design","Holdout","The untreated share (1 − treated share).","08","74%"],
+ ["Design","Backtest","Running zero-lift tests on many historical windows to measure a geo set's past error.","06",""],
+ ["Design","Out-of-sample validation","Checking a choice on data that wasn't used to make it.","06","Correlation −0.01"],
+ ["Design","Winner's curse","The best of many noisy tries is usually lucky, not truly better.","06",""],
+
+ ["Money","Incremental KPI","actual − actual ÷ (1 + lift). Not actual × lift, which overstates.","07","716 sessions"],
+ ["Money","CVR (conversion rate)","Orders ÷ sessions.","07","2.01%"],
+ ["Money","AOV (average order value)","Revenue ÷ orders.","07","$73.95"],
+ ["Money","Incremental revenue","Incremental sessions × CVR × AOV.","07","≈ $1,066"],
+ ["Money","iROAS","Incremental revenue ÷ ad spend: causal revenue per $1 spent.","07","1.33"],
+ ["Money","Platform ROAS","Platform-attributed revenue ÷ spend. Correlational; usually overstates.","07","3.5"],
+ ["Money","Attribution","Crediting the ad with purchases by anyone who touched it, including people who would have bought anyway.","07",""],
+ ["Money","Lift vs incremental share","Lift divides by the counterfactual; incremental share divides by the actual result.","03",""],
+ ["Money","CPIS","Cost per incremental session: spend ÷ incremental sessions.","07","$1.12"],
+ ["Money","Gross margin","Share of each $1 of revenue left after product costs.","07","50%"],
+ ["Money","Profit break-even iROAS","1 ÷ gross margin. iROAS must exceed it to make money.","07","2.0"],
+ ["Money","Incrementality factor","iROAS ÷ platform ROAS; used to discount platform numbers between tests.","07","0.38"],
+ ["Money","MMM calibration","Using experiment results as priors to correct a marketing mix model's channel ROIs.","07",""],
+
+ ["Tools & code","GeoLift","Meta's open-source R package for geo tests: market selection, power, budget, and ASCM estimates.","08",""],
+ ["Tools & code","GeoLiftMarketSelection","Searches treatment sets and ranks them by power, MDE, fit, and budget.","08","#1 MDE 2.5%"],
+ ["Tools & code","EffectSize","The MDE of a candidate set in GeoLift's output.","08",""],
+ ["Tools & code","Investment","GeoLift's estimate of the budget needed to detect the effect (via cpic).","08","$342"],
+ ["Tools & code","cpic","Cost per incremental conversion; GeoLift uses it to estimate budget.","08","1.12"],
+ ["Tools & code","abs_lift_in_zero","GeoLift's built-in placebo: lift estimated when the true effect is 0.","08","0.9%"],
+ ["Tools & code","ATT","Average treatment effect on the treated: extra KPI per time unit.","08","27.1"],
+ ["Tools & code","Incremental Y","GeoLift's total incremental KPI.","08","760"],
+ ["Tools & code","scipy.optimize.minimize","Finds the inputs (e.g. weights) that minimize a loss function.","03",""],
+ ["Tools & code","SLSQP","An optimizer in minimize that supports bounds and equality constraints such as \"weights sum to 1\".","03",""],
+ ["Tools & code","Loss function","A number that says how bad a set of parameters is; optimization makes it small.","03",""],
+ ["Tools & code","Wide vs long format","Long: one row per geo per day. Wide: one row per day, one column per geo (pivot).","04",""],
+ ["Tools & code","Random seed","Fixes the starting point of random draws so results are reproducible.","05",""],
+];
+
+const cats = ["All", ...new Set(T.map(t => t[0]))];
+let active = "All";
+const gloss = document.getElementById("gloss");
+const chips = document.getElementById("chips");
+const q = document.getElementById("q");
+const count = document.getElementById("count");
+const empty = document.getElementById("empty");
+
+cats.forEach(c => {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = c; b.setAttribute("aria-pressed", c === active);
+  b.addEventListener("click", () => {
+    active = c;
+    chips.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.textContent === c));
+    render();
+  });
+  chips.appendChild(b);
+});
+
+function esc(s) { return s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch])); }
+
+function render() {
+  const needle = q.value.trim().toLowerCase();
+  const rows = T.filter(t => (active === "All" || t[0] === active) &&
+    (!needle || t.slice(1).join(" ").toLowerCase().includes(needle)));
+  gloss.innerHTML = rows.map(t => `
+    <article class="term">
+      <div class="top"><span class="en">${esc(t[1])}</span><span class="les">${t[3] === "—" ? "" : "case " + esc(t[3])}</span></div>
+      <p>${esc(t[2])}</p>
+      ${t[4] ? `<span class="ex">Result: ${esc(t[4])}</span>` : ""}
+    </article>`).join("");
+  count.textContent = `${rows.length} of ${T.length} terms`;
+  empty.hidden = rows.length > 0;
+}
+q.addEventListener("input", render);
+render();
+</script>
